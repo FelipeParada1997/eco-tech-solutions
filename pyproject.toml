@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ecotech-solutions"
+version = "1.2.0"
+requires-python = ">=3.12"
+dynamic = ["dependencies"]
+
+[project.scripts]
+ecotech = "ecotech.main:main"
+
+[tool.setuptools.dynamic]
+dependencies = { file = "requirements.txt" }
+
+[tool.setuptools.packages.find]
+include = ["ecotech", "ecotech.*"]
+
+[tool.setuptools.package-data]
+"ecotech.database" = ["schema.sql"]

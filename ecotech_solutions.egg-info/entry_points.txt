@@ -1,0 +1,2 @@
+[console_scripts]
+ecotech = ecotech.main:main

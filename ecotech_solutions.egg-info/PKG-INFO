@@ -1,0 +1,10 @@
+Metadata-Version: 2.4
+Name: ecotech-solutions
+Version: 1.2.0
+Requires-Python: >=3.12
+Requires-Dist: PyQt6<7,>=6.6
+Requires-Dist: oracledb<5,>=2
+Requires-Dist: python-dotenv<2,>=1
+Requires-Dist: openpyxl<4,>=3.1
+Requires-Dist: reportlab<5,>=4
+Requires-Dist: cryptography<51,>=43
