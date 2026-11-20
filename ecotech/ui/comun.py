@@ -4,7 +4,7 @@ from enum import Enum
 from PyQt6.QtCore import QDate
 from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QFormLayout, QLabel,
                              QLineEdit, QComboBox, QDateEdit, QPushButton, QTableWidget,
-                             QTableWidgetItem, QMessageBox)
+                             QTableWidgetItem, QMessageBox, QInputDialog)
 
 
 def combo(opciones):
@@ -126,6 +126,9 @@ class PantallaTabla(QWidget):
 
     def datos(self):
         return {nombre: valor(control) for nombre, control in self.campos.items()}
+
+    def pedir_texto(self,titulo,mensaje):
+        return QInputDialog.getText(self, titulo, mensaje)
 
     def confirmar(self):
         if self.seleccionado is None:

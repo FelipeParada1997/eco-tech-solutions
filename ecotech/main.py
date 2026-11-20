@@ -5,7 +5,7 @@ from ecotech.ui.ventana_login import VentanaLogin
 
 
 def main():
-    app = QApplication(sys.argv)
+    app = QApplication([])
     app.setStyle('Fusion')
 
     palette = app.palette()
@@ -16,7 +16,7 @@ def main():
     palette.setColor(QPalette.ColorRole.Text, QColor('#111827'))
     palette.setColor(QPalette.ColorRole.Button, QColor('#e6ebf1'))
     palette.setColor(QPalette.ColorRole.ButtonText, QColor('#111827'))
-    palette.setColor(QPalette.ColorRole.Highlight, QColor('#217346'))
+    palette.setColor(QPalette.ColorRole.Highlight, QColor('#808080'))
     palette.setColor(QPalette.ColorRole.HighlightedText, QColor('#ffffff'))
     app.setPalette(palette)
 

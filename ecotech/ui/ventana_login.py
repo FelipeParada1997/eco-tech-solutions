@@ -1,6 +1,7 @@
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QFormLayout, QLabel, QLineEdit, QPushButton, QMessageBox
 from ecotech.services.autenticacion import AutenticacionService
 from ecotech.services.gestion import GestionService
+from .ventana_principal import VentanaPrincipal
 
 
 class VentanaLogin(QWidget):
@@ -37,7 +38,7 @@ class VentanaLogin(QWidget):
             if cuenta is None:
                 QMessageBox.warning(self, 'Acceso denegado', 'Usuario o contraseña incorrectos, o cuenta inactiva.')
                 return
-            from .ventana_principal import VentanaPrincipal
+            # Crear el servicio de gestión con la cuenta autenticada
             servicio = GestionService(cuenta, self.auth_service.repository)
             self.ventana_principal = VentanaPrincipal(servicio)
             self.ventana_principal.show()
