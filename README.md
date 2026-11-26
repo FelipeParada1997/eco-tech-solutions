@@ -155,3 +155,29 @@ una contraseña ADMIN, cierra todos los clientes y ejecuta
 
 Capturas con datos ficticios: [administrador](docs/capturas/administrador.png) y
 [empleado](docs/capturas/empleado.png).
+
+## Integracion de APIS - unidad 3
+
+Este modulo permitira consultar el clima de proyectos mediante Open-Meteo 
+y convertir pagos utilizando FrankFurter V2
+
+### Ejecucion 
+
+desde la carpeta principal del proyecto, activar el entorno virtual:
+
+```bash
+source .venv/bin/activate
+```
+
+Instalar las dependencias:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Ejecutar el programa:
+
+```bash
+python -m ecotech.scripts.servicios_externos
+```
+
