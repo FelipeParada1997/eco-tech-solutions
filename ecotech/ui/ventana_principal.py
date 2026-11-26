@@ -6,6 +6,7 @@ from .ventana_asignaciones import VentanaAsignaciones
 from .ventana_horas import VentanaHoras
 from .ventana_cuentas import VentanaCuentas
 from .ventana_informes import VentanaInformes
+from .ventana_servicios_externos import VentanaServiciosExternos
 
 
 class VentanaPrincipal(QMainWindow):
@@ -37,9 +38,11 @@ class VentanaPrincipal(QMainWindow):
         self.pestanas.addTab(VentanaProyectos(servicio), titulo_proyectos)
         self.pestanas.addTab(VentanaAsignaciones(servicio), 'Asignaciones')
         self.pestanas.addTab(VentanaHoras(servicio), 'Horas')
+        self.pestanas.addTab(VentanaServiciosExternos(servicio), "Servicios Externos")
         if servicio.es_admin:
             self.pestanas.addTab(VentanaCuentas(servicio), 'Cuentas')
             self.pestanas.addTab(VentanaInformes(servicio), 'Informes')
+            
         accion = self.menuBar().addAction('Cerrar sesión')
         accion.triggered.connect(self.cerrar_sesion)
 
