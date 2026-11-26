@@ -23,7 +23,7 @@ class VentanaServiciosExternos(QWidget):
 
         layout.addStretch()
 
-    def consultar_clima():
+    def consultar_clima(self):
         QMessageBox.information(self,
                                 "Open-Meteo",
                                 "logica consulta"
