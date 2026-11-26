@@ -1,3 +1,3 @@
 """Excepción de persistencia utilizada por la interfaz."""
-from oracledb import Error as DatabaseError
+from sqlite3 import Error as DatabaseError
 __all__ = ['DatabaseError']
