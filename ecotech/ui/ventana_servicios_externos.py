@@ -24,15 +24,35 @@ class VentanaServiciosExternos(QWidget):
         layout.addStretch()
 
     def consultar_clima(self):
+
+        try:
+            self.servicio.autorizar("servicios_externos")
+
+        except PermissionError:
+
+            QMessageBox.warning(self,
+                                "Acceso denegado",
+                                "La sesion termino o no tiene permiso para este servicio")
+            return
+
         QMessageBox.information(self,
-                                "Open-Meteo",
-                                "logica consulta"
-        )
+        "Open-Meteo",
+        "Acceso autorizado. Logica del clima.")
 
     def convertir_pago(self):
+
+        try:
+            self.servicio.autorizar("servicios_externos")
+
+        except PermissionError:
+            QMessageBox.warning(self,
+                                "Acceso denegado",
+                                "La sesion termino o no tiene permiso para este servicio")
+            return
+        
         QMessageBox.information(self,
                                 "FrankFurter",
-                                "Logica conversion")
+                                "Acceso Autorizado. Logica conversion")
         
 
 

@@ -1,14 +1,15 @@
 from PyQt6.QtWidgets import QWidget, QVBoxLayout, QFormLayout, QLabel, QLineEdit, QPushButton, QMessageBox
 from ecotech.services.autenticacion import AutenticacionService
-from ecotech.services.gestion import GestionService
+from ecotech.services.gestion import GestionService 
 from .ventana_principal import VentanaPrincipal
+from ecotech.validation import usuario as validar_usuario
 
 
 class VentanaLogin(QWidget):
     def __init__(self, repository=None):
         super().__init__()
         self.auth_service = AutenticacionService(repository)
-        self.ventana_principal = None
+        self.ventana_principal = None 
         self.setWindowTitle('EcoTech Solutions - Iniciar sesión')
         self.resize(430, 260)
         self.setStyleSheet("""
@@ -33,10 +34,24 @@ class VentanaLogin(QWidget):
         layout.addWidget(boton)
 
     def iniciar_sesion(self):
+        usuario = self.usuario.text().strip()
+        contrasena = self.contrasena.text()
+
+        if not usuario or not contrasena:
+            QMessageBox.warning(self,
+                                "Acceso denegado",
+                                "Debe completar el usuario y la contraseña.")
+            return
+
+        try:
+            validar_usuario(usuario)
+        except ValueError:
+            QMessageBox.warning(self, 'Acceso denegado', 'Usuario o contraseña con formato incorrecto.')
+
         try:
             cuenta = self.auth_service.autenticar(self.usuario.text(), self.contrasena.text())
             if cuenta is None:
-                QMessageBox.warning(self, 'Acceso denegado', 'Usuario o contraseña incorrectos, o cuenta inactiva.')
+                
                 return
             # Crear el servicio de gestión con la cuenta autenticada
             servicio = GestionService(cuenta, self.auth_service.repository)

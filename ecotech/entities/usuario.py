@@ -1,8 +1,8 @@
 from ecotech import validation as v
 from ecotech.security.passwords import verificar_password
 
-MODULOS_ADMIN = frozenset({'empleados', 'departamentos', 'proyectos', 'asignaciones', 'horas', 'informes', 'cuentas'})
-MODULOS_EMPLEADO = frozenset({'empleados', 'departamentos', 'proyectos', 'asignaciones', 'horas'})
+MODULOS_ADMIN = frozenset({'empleados', 'departamentos', 'proyectos', 'asignaciones', 'horas', 'informes', 'cuentas', 'servicios externos'})
+MODULOS_EMPLEADO = frozenset({'empleados', 'departamentos', 'proyectos', 'asignaciones', 'horas', 'servicios externos'})
 
 
 class CuentaUsuario:
